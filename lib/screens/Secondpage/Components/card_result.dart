@@ -1,5 +1,5 @@
 import 'package:calc/screens/Secondpage/Components/custom_meter.dart';
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:calc/provider/model_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

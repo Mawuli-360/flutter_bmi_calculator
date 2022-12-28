@@ -1,21 +1,16 @@
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:calc/provider/model_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-class WeightField extends StatefulWidget {
+class WeightField extends StatelessWidget {
   const WeightField({super.key});
 
   @override
-  State<WeightField> createState() => _WeightFieldState();
-}
-
-class _WeightFieldState extends State<WeightField> {
-  @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Mass>(context, listen: false);
+    final provider = Provider.of<Mass>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 3.h),
       child: Row(

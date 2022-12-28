@@ -1,4 +1,4 @@
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:calc/screens/Secondpage/Components/card_result.dart';
 import 'package:calc/provider/model_provider.dart';
 import 'package:flutter/material.dart';

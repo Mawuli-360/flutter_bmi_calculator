@@ -1,4 +1,4 @@
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:calc/screens/Homepage/Components/keyboard.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ThemeProvider>(context);
+    final provider = Provider.of<ThemeModal>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -26,7 +26,9 @@ class _BodyState extends State<Body> {
           SizedBox(height: 2.h),
           Text(
             "BMI",
-            style: TextStyle(fontSize: 28.sp, color: primaryColor),
+            style: TextStyle(
+                fontSize: 28.sp,
+                color: provider.isDark ? bgColor : primaryColor),
           ),
           SizedBox(height: 2.h),
           Expanded(
@@ -37,12 +39,17 @@ class _BodyState extends State<Body> {
                   // SizedBox(height: 6.h),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Switch(
-                      value: provider.darkTheme,
-                      onChanged: ((value) {
-                        provider.setDarkTheme(value);
-                      }),
-                    ),
+                    child: Consumer<ThemeModal>(
+                        builder: (context, ThemeModal themeModal, _) {
+                      return Switch(
+                        value: themeModal.isDark ? true : false,
+                        onChanged: ((bool value) {
+                          themeModal.isDark
+                              ? themeModal.isDark = false
+                              : themeModal.isDark = true;
+                        }),
+                      );
+                    }),
                   ),
                   const Divider(thickness: 2),
                 ],

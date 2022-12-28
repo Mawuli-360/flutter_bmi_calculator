@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:calc/screens/Homepage/Components/body.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     timeDelayed = Future.delayed(const Duration(milliseconds: 1600));
-        animationController = AnimationController(
+    animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     );
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SlideTransition(
           position: Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero)
               .animate(animationController),

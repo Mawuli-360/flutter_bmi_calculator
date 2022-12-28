@@ -1,9 +1,10 @@
-import 'package:calc/Config/constants.dart';
+import 'package:calc/Config/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class GlobalMethods {
-   static customSnackbar({required BuildContext context , required String label}) {
+  static customSnackbar(
+      {required BuildContext context, required String label}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Container(
