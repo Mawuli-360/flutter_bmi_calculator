@@ -5,6 +5,8 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../provider/theme_provider.dart';
+
 class HeightField extends StatefulWidget {
   const HeightField({super.key});
 
@@ -15,7 +17,9 @@ class HeightField extends StatefulWidget {
 class _HeightFieldState extends State<HeightField> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Mass>(context, listen: false);
+    final provider = Provider.of<Mass>(context);
+    final themeProvider = Provider.of<ThemeModal>(context);
+    final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 3.h),
       child: Row(
@@ -31,16 +35,21 @@ class _HeightFieldState extends State<HeightField> {
                 height: heightSize,
                 width: widthSize,
                 decoration: BoxDecoration(
-                    color: bgColor,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: value.isHeightSelected
-                        ? innerBoxShadow
-                        : outerBoxShadow),
+                  color: theme.backgroundColor,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: value.isHeightSelected
+                      ? themeProvider.isDark
+                          ? darkInnerBoxShadow
+                          : innerBoxShadow
+                      : themeProvider.isDark
+                          ? darkOuterBoxShadow
+                          : outerBoxShadow,
+                ),
                 child: Center(
                     child: Text(
                   "HEIGHT",
-                  style:
-                      TextStyle(color: primaryColor, fontSize: defaultFontSize),
+                  style: TextStyle(
+                      color: theme.primaryColor, fontSize: defaultFontSize),
                 )),
               ),
             ),
@@ -55,13 +64,13 @@ class _HeightFieldState extends State<HeightField> {
                       fontWeight: FontWeight.bold,
                       color: provider.isHeightSelected
                           ? secondaryColor
-                          : primaryColor),
+                          : theme.primaryColor),
                 ),
               ),
               Text(
                 "Centimeter",
-                style:
-                    TextStyle(color: primaryColor, fontSize: defaultFontSize),
+                style: TextStyle(
+                    color: theme.primaryColor, fontSize: defaultFontSize),
               ),
             ],
           ),

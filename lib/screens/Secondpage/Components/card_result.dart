@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../provider/theme_provider.dart';
+
 class CardResult extends StatelessWidget {
   const CardResult({
     Key? key,
@@ -12,16 +14,19 @@ class CardResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeModal>(context);
+    final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.all(3.h),
       child: Container(
         height: 30.h,
-        decoration: const BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+            color: theme.backgroundColor,
+            borderRadius: const BorderRadius.all(
               Radius.circular(30),
             ),
-            boxShadow: outerBoxShadow),
+            boxShadow:
+                themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow),
         child: Padding(
           padding: EdgeInsets.all(2.h),
           child: Column(
@@ -47,7 +52,7 @@ class CardResult extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 29.sp,
                           fontWeight: FontWeight.w700,
-                          color: primaryColor,
+                          color: theme.primaryColor,
                         ),
                       ),
                       Consumer<Mass>(

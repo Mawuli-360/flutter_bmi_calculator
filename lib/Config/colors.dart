@@ -3,6 +3,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:sizer/sizer.dart';
 
 const Color bgColor = Color(0xffe2e3eb);
+const Color darkBgColor = Color(0xff1b1d37);
 const Color primaryColor = Color(0xC3444444);
 const Color secondaryColor = Color(0xFFD67C28);
 
@@ -26,6 +27,18 @@ const List<BoxShadow> outerBoxShadow = [
     blurRadius: 12,
   ),
 ];
+List<BoxShadow> darkOuterBoxShadow = [
+  const BoxShadow(
+    color: Colors.black54,
+    offset: Offset(3, 3),
+    blurRadius: 8,
+  ),
+  BoxShadow(
+    color: Colors.blueGrey.shade800,
+    offset: const Offset(-4, -4),
+    blurRadius: 6,
+  ),
+];
 const List<BoxShadow> innerBoxShadow = [
   BoxShadow(
     color: Colors.grey,
@@ -40,19 +53,17 @@ const List<BoxShadow> innerBoxShadow = [
     inset: true,
   ),
 ];
-
-//CUSTOM BUTTON
-Container customButton({required String label}) {
-  return Container(
-    decoration: const BoxDecoration(
-      shape: BoxShape.circle,
-      color: bgColor,
-      boxShadow: outerBoxShadow,
-    ),
-    child: Center(
-        child: Text(
-      label,
-      style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-    )),
-  );
-}
+List<BoxShadow> darkInnerBoxShadow = [
+  const BoxShadow(
+    color: Colors.black54,
+    offset: Offset(4, 4),
+    blurRadius: 6,
+    inset: true,
+  ),
+  BoxShadow(
+    color: Colors.blueGrey.shade700,
+    offset: const Offset(-4, -4),
+    blurRadius: 4,
+    inset: true,
+  ),
+];

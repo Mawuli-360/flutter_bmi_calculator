@@ -1,4 +1,3 @@
-import 'package:calc/Config/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:calc/screens/Homepage/Components/keyboard.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ThemeModal>(context);
+    final themeProvider = Provider.of<ThemeModal>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -27,8 +26,7 @@ class _BodyState extends State<Body> {
           Text(
             "BMI",
             style: TextStyle(
-                fontSize: 28.sp,
-                color: provider.isDark ? bgColor : primaryColor),
+                fontSize: 28.sp, color: Theme.of(context).primaryColor),
           ),
           SizedBox(height: 2.h),
           Expanded(
@@ -51,7 +49,11 @@ class _BodyState extends State<Body> {
                       );
                     }),
                   ),
-                  const Divider(thickness: 2),
+                  Divider(
+                    thickness: 2,
+                    color:
+                        themeProvider.isDark ? Colors.blueGrey.shade900 : null,
+                  ),
                 ],
               ),
             ),

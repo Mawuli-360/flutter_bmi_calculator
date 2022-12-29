@@ -1,4 +1,3 @@
-import 'package:calc/Config/colors.dart';
 import 'package:calc/screens/Secondpage/Components/body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +6,9 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: bgColor,
-      body: Body(),
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const Body(),
     );
   }
 }

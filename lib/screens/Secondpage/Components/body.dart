@@ -4,6 +4,7 @@ import 'package:calc/provider/model_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import '../../../provider/theme_provider.dart';
 import 'mass_field.dart';
 
 class Body extends StatelessWidget {
@@ -13,6 +14,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final themeProvider = Provider.of<ThemeModal>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -22,7 +25,10 @@ class Body extends StatelessWidget {
           ),
           Text(
             "BMI",
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(color: theme.primaryColor),
           ),
           SizedBox(
             height: 2.h,
@@ -45,7 +51,11 @@ class Body extends StatelessWidget {
                     unit: "Centimeter",
                   ),
                   const Spacer(),
-                  const Divider(thickness: 2),
+                  Divider(
+                    thickness: 2,
+                    color:
+                        themeProvider.isDark ? Colors.blueGrey.shade900 : null,
+                  ),
                   const Spacer(),
                 ],
               ),
@@ -67,10 +77,13 @@ class Body extends StatelessWidget {
                     child: Container(
                       height: 10.h,
                       width: 10.h,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                        boxShadow: outerBoxShadow,
-                        color: bgColor,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(50)),
+                        boxShadow: themeProvider.isDark
+                            ? darkOuterBoxShadow
+                            : outerBoxShadow,
+                        color: theme.backgroundColor,
                       ),
                       child: Center(
                           child: Icon(

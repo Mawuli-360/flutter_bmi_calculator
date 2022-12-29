@@ -1,7 +1,10 @@
 import 'package:calc/Config/colors.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../provider/theme_provider.dart';
 
 class MassField extends StatelessWidget {
   final String label;
@@ -17,6 +20,7 @@ class MassField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeModal>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 3.h),
       child: Row(
@@ -26,13 +30,14 @@ class MassField extends StatelessWidget {
             height: heightSize,
             width: widthSize,
             decoration: BoxDecoration(
-                color: bgColor,
+                color: Theme.of(context).backgroundColor,
                 borderRadius: BorderRadius.circular(30),
-                boxShadow: outerBoxShadow),
+                boxShadow:
+                    themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow),
             child: Center(
                 child: Text(
               label,
-              style: const TextStyle(color: primaryColor),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             )),
           ),
           Column(
@@ -44,8 +49,9 @@ class MassField extends StatelessWidget {
                       fontWeight: FontWeight.bold)),
               Text(
                 unit,
-                style:
-                    TextStyle(color: primaryColor, fontSize: defaultFontSize),
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: defaultFontSize),
               ),
             ],
           ),

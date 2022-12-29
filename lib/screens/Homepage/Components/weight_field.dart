@@ -5,12 +5,16 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../provider/theme_provider.dart';
+
 class WeightField extends StatelessWidget {
   const WeightField({super.key});
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Mass>(context);
+    final theme = Theme.of(context);
+    final themeProvider = Provider.of<ThemeModal>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 3.h),
       child: Row(
@@ -26,16 +30,21 @@ class WeightField extends StatelessWidget {
                 height: heightSize,
                 width: widthSize,
                 decoration: BoxDecoration(
-                    color: bgColor,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: value.isWeightSelected
-                        ? innerBoxShadow
-                        : outerBoxShadow),
+                  color: theme.backgroundColor,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: value.isWeightSelected
+                      ? themeProvider.isDark
+                          ? darkInnerBoxShadow
+                          : innerBoxShadow
+                      : themeProvider.isDark
+                          ? darkOuterBoxShadow
+                          : outerBoxShadow,
+                ),
                 child: Center(
                     child: Text(
                   "WEIGHT",
-                  style:
-                      TextStyle(color: primaryColor, fontSize: defaultFontSize),
+                  style: TextStyle(
+                      color: theme.primaryColor, fontSize: defaultFontSize),
                 )),
               ),
             ),
@@ -50,13 +59,13 @@ class WeightField extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: provider.isWeightSelected
                           ? secondaryColor
-                          : primaryColor),
+                          : theme.primaryColor),
                 ),
               ),
               Text(
                 "Kilogram",
-                style:
-                    TextStyle(color: primaryColor, fontSize: defaultFontSize),
+                style: TextStyle(
+                    color: theme.primaryColor, fontSize: defaultFontSize),
               ),
             ],
           ),

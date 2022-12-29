@@ -1,4 +1,4 @@
-import 'package:calc/Config/operator_buttons.dart';
+import 'package:calc/screens/Homepage/Components/operator_buttons.dart';
 import 'package:calc/screens/Homepage/Components/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
