@@ -17,7 +17,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeModal>(context);
+    final theme = Theme.of(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -60,11 +60,7 @@ class _BodyState extends State<Body> {
                       );
                     }),
                   ),
-                  Divider(
-                    thickness: 2,
-                    color:
-                        themeProvider.isDark ? Colors.blueGrey.shade900 : null,
-                  ),
+                  Divider(thickness: 2, color: theme.dividerColor),
                 ],
               ),
             ),

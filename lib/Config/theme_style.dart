@@ -7,6 +7,7 @@ class Styles {
       scaffoldBackgroundColor: isDark ? darkBgColor : bgColor,
       primaryColor: isDark ? bgColor : primaryColor,
       backgroundColor: isDark ? darkBgColor : bgColor,
+      dividerColor: isDark ? Colors.blueGrey.shade900 : null,
     );
   }
 }
