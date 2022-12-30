@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
           return Sizer(
             builder: ((context, orientation, deviceType) {
               return MaterialApp(
-                debugShowCheckedModeBanner: false,
                 theme: Styles.themesData(value.isDark, context),
                 home: const SplashScreen(),
               );

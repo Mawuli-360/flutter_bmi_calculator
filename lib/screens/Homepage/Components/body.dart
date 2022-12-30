@@ -39,16 +39,24 @@ class _BodyState extends State<Body> {
                     alignment: Alignment.centerRight,
                     child: Consumer<ThemeModal>(
                         builder: (context, ThemeModal themeModal, _) {
-                      return Switch(
-                        activeThumbImage: const AssetImage("asset/moon.png"),
-                        inactiveThumbImage: const AssetImage("asset/sun.png"),
-                        inactiveTrackColor: Colors.white,
-                        value: themeModal.isDark ? true : false,
-                        onChanged: ((bool value) {
-                          themeModal.isDark
-                              ? themeModal.isDark = false
-                              : themeModal.isDark = true;
-                        }),
+                      return Padding(
+                        padding: EdgeInsets.symmetric(vertical: 2.0.h),
+                        child: SizedBox(
+                          height: 2.h,
+                          child: Switch(
+                            activeThumbImage:
+                                const AssetImage("asset/moon.png"),
+                            inactiveThumbImage:
+                                const AssetImage("asset/sun.png"),
+                            inactiveTrackColor: Colors.white,
+                            value: themeModal.isDark ? true : false,
+                            onChanged: ((bool value) {
+                              themeModal.isDark
+                                  ? themeModal.isDark = false
+                                  : themeModal.isDark = true;
+                            }),
+                          ),
+                        ),
                       );
                     }),
                   ),
