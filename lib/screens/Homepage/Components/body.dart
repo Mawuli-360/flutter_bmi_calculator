@@ -40,6 +40,9 @@ class _BodyState extends State<Body> {
                     child: Consumer<ThemeModal>(
                         builder: (context, ThemeModal themeModal, _) {
                       return Switch(
+                        activeThumbImage: const AssetImage("asset/moon.png"),
+                        inactiveThumbImage: const AssetImage("asset/sun.png"),
+                        inactiveTrackColor: Colors.white,
                         value: themeModal.isDark ? true : false,
                         onChanged: ((bool value) {
                           themeModal.isDark

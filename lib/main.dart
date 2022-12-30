@@ -4,7 +4,7 @@ import 'package:calc/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'provider/model_provider.dart';
+import 'provider/bmi_provider.dart';
 
 void main() {
   runApp(const MyApp());

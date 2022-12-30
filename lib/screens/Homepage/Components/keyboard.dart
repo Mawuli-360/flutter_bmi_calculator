@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import '../../../Config/global_methods.dart';
 import '../../../Config/slide_animation.dart';
-import '../../../provider/model_provider.dart';
+import '../../../provider/bmi_provider.dart';
 import '../../Secondpage/second_page.dart';
 
 class Keyboard extends StatelessWidget {

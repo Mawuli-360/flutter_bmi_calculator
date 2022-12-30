@@ -8,6 +8,7 @@ class CustomMeter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Row(
@@ -70,13 +71,14 @@ class CustomMeter extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "16.0",
-              style: TextStyle(fontSize: 11.sp),
-            ),
-            Text("18.5", style: TextStyle(fontSize: 11.sp)),
-            Text("25.0", style: TextStyle(fontSize: 11.sp)),
-            Text("40.0", style: TextStyle(fontSize: 11.sp)),
+            Text("16.0",
+                style: TextStyle(fontSize: 11.sp, color: theme.primaryColor)),
+            Text("18.5",
+                style: TextStyle(fontSize: 11.sp, color: theme.primaryColor)),
+            Text("25.0",
+                style: TextStyle(fontSize: 11.sp, color: theme.primaryColor)),
+            Text("40.0",
+                style: TextStyle(fontSize: 11.sp, color: theme.primaryColor)),
           ],
         ),
       ],

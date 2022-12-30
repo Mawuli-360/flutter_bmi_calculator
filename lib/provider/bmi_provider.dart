@@ -60,7 +60,7 @@ class Mass extends ChangeNotifier {
     } else if (answer >= 18.5 && answer < 25.5) {
       msg = "Normal";
       color = Colors.green;
-    } else if (answer >= 25.5 && answer < 40) {
+    } else if (answer >= 25.5 && answer < 40) { 
       msg = "Overweight";
       color = Colors.red;
     } else {

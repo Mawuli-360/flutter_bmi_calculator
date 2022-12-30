@@ -4,7 +4,7 @@ import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import '../../../provider/model_provider.dart';
+import '../../../provider/bmi_provider.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.label});
