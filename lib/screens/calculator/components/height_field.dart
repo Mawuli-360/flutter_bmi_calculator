@@ -1,20 +1,24 @@
-import 'package:calc/Config/colors.dart';
+import 'package:calc/config/colors.dart';
 import 'package:calc/provider/bmi_provider.dart';
+import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../provider/theme_provider.dart';
+class HeightField extends StatefulWidget {
+  const HeightField({super.key});
 
-class WeightField extends StatelessWidget {
-  const WeightField({super.key});
+  @override
+  State<HeightField> createState() => _HeightFieldState();
+}
 
+class _HeightFieldState extends State<HeightField> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Mass>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     final theme = Theme.of(context);
-    final themeProvider = Provider.of<ThemeModal>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 3.h),
       child: Row(
@@ -22,7 +26,7 @@ class WeightField extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              provider.onWeightPressed();
+              provider.onHeightPressed();
             },
             child: Consumer<Mass>(
               builder: (context, value, child) => AnimatedContainer(
@@ -30,9 +34,9 @@ class WeightField extends StatelessWidget {
                 height: heightSize,
                 width: widthSize,
                 decoration: BoxDecoration(
-                  color: theme.backgroundColor,
+                  color: theme.colorScheme.background,
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: value.isWeightSelected
+                  boxShadow: value.isHeightSelected
                       ? themeProvider.isDark
                           ? darkInnerBoxShadow
                           : innerBoxShadow
@@ -42,7 +46,7 @@ class WeightField extends StatelessWidget {
                 ),
                 child: Center(
                     child: Text(
-                  "WEIGHT",
+                  "HEIGHT",
                   style: TextStyle(
                       color: theme.primaryColor, fontSize: defaultFontSize),
                 )),
@@ -53,17 +57,17 @@ class WeightField extends StatelessWidget {
             children: [
               Consumer<Mass>(
                 builder: (context, value, child) => Text(
-                  value.weight,
+                  value.height,
                   style: TextStyle(
                       fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
-                      color: provider.isWeightSelected
+                      color: provider.isHeightSelected
                           ? secondaryColor
                           : theme.primaryColor),
                 ),
               ),
               Text(
-                "Kilogram",
+                "Centimeter",
                 style: TextStyle(
                     color: theme.primaryColor, fontSize: defaultFontSize),
               ),

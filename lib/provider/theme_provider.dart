@@ -1,12 +1,12 @@
-import 'package:calc/model/theme_preferences.dart';
+import 'package:calc/util/theme_preferences.dart';
 import 'package:flutter/material.dart';
 
-class ThemeModal extends ChangeNotifier {
+class ThemeProvider extends ChangeNotifier {
   late bool _isDark;
   late ThemePreferences themePreferences;
   bool get isDark => _isDark;
 
-  ThemeModal() {
+  ThemeProvider() {
     _isDark = false;
     themePreferences = ThemePreferences();
     getThemePreferences();

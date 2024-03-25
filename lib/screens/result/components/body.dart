@@ -1,10 +1,10 @@
-import 'package:calc/Config/colors.dart';
-import 'package:calc/screens/Secondpage/Components/card_result.dart';
+import 'package:calc/config/colors.dart';
+import 'package:calc/provider/theme_provider.dart';
+import 'package:calc/screens/result/components/card_result.dart';
 import 'package:calc/provider/bmi_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import '../../../provider/theme_provider.dart';
 import 'mass_field.dart';
 
 class Body extends StatelessWidget {
@@ -15,7 +15,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final themeProvider = Provider.of<ThemeModal>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     final provider = Provider.of<Mass>(context);
     return WillPopScope(
       onWillPop: () async {
@@ -33,7 +33,7 @@ class Body extends StatelessWidget {
               "BMI",
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .copyWith(color: theme.primaryColor),
             ),
             SizedBox(
@@ -90,7 +90,7 @@ class Body extends StatelessWidget {
                           boxShadow: themeProvider.isDark
                               ? darkOuterBoxShadow
                               : outerBoxShadow,
-                          color: theme.backgroundColor,
+                          color: theme.colorScheme.background,
                         ),
                         child: Center(
                             child: Icon(

@@ -1,4 +1,4 @@
-import 'package:calc/Config/theme_style.dart';
+import 'package:calc/config/theme_style.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:calc/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +13,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: ((context) => Mass())),
-          ChangeNotifierProvider(create: ((context) => ThemeModal()))
+          ChangeNotifierProvider(create: ((context) => ThemeProvider()))
         ],
-        child: Consumer<ThemeModal>(builder: (context, value, _) {
+        child: Consumer<ThemeProvider>(builder: (context, value, _) {
           return Sizer(
             builder: ((context, orientation, deviceType) {
               return MaterialApp(

@@ -1,7 +1,7 @@
 import 'package:calc/provider/theme_provider.dart';
-import 'package:calc/screens/Homepage/Components/keyboard.dart';
+import 'package:calc/screens/calculator/components/keyboard.dart';
 import 'package:flutter/material.dart';
-import 'package:calc/screens/Homepage/Components/mass_field.dart';
+import 'package:calc/screens/calculator/components/mass_field.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,11 +34,10 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: [
                   const MassField(),
-                  // SizedBox(height: 6.h),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Consumer<ThemeModal>(
-                        builder: (context, ThemeModal themeModal, _) {
+                    child: Consumer<ThemeProvider>(
+                        builder: (context, ThemeProvider themeModal, _) {
                       return Padding(
                         padding: EdgeInsets.symmetric(vertical: 2.0.h),
                         child: SizedBox(

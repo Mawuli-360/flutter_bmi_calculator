@@ -1,9 +1,8 @@
-import 'package:calc/Config/colors.dart';
+import 'package:calc/config/colors.dart';
+import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../provider/theme_provider.dart';
 
 class OperatorButton extends StatelessWidget {
   final VoidCallback voidCallback;
@@ -18,14 +17,14 @@ class OperatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final themeProvider = Provider.of<ThemeModal>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return GestureDetector(
       onTap: voidCallback,
       child: Container(
         height: operatorHeight,
         width: operatorWidth,
         decoration: BoxDecoration(
-          color: theme.backgroundColor,
+          color: theme.colorScheme.background,
           boxShadow: themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow,
           borderRadius: const BorderRadius.all(
             Radius.circular(40),

@@ -1,11 +1,10 @@
-import 'package:calc/screens/Secondpage/Components/custom_meter.dart';
-import 'package:calc/Config/colors.dart';
+import 'package:calc/provider/theme_provider.dart';
+import 'package:calc/screens/result/components/custom_meter.dart';
+import 'package:calc/config/colors.dart';
 import 'package:calc/provider/bmi_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../provider/theme_provider.dart';
 
 class CardResult extends StatelessWidget {
   const CardResult({
@@ -14,14 +13,14 @@ class CardResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeModal>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.all(3.h),
       child: Container(
         height: 30.h,
         decoration: BoxDecoration(
-            color: theme.backgroundColor,
+            color: theme.colorScheme.background,
             borderRadius: const BorderRadius.all(
               Radius.circular(30),
             ),

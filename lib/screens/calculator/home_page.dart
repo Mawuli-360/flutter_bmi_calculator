@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:calc/screens/Homepage/Components/body.dart';
+import 'package:calc/screens/calculator/components/body.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

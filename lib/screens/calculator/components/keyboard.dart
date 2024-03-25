@@ -1,12 +1,12 @@
-import 'package:calc/screens/Homepage/Components/operator_buttons.dart';
-import 'package:calc/screens/Homepage/Components/custom_button.dart';
+import 'package:calc/config/global_methods.dart';
+import 'package:calc/config/slide_animation.dart';
+import 'package:calc/provider/bmi_provider.dart';
+import 'package:calc/screens/calculator/components/operator_buttons.dart';
+import 'package:calc/screens/calculator/components/custom_button.dart';
+import 'package:calc/screens/result/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import '../../../Config/global_methods.dart';
-import '../../../Config/slide_animation.dart';
-import '../../../provider/bmi_provider.dart';
-import '../../Secondpage/second_page.dart';
 
 class Keyboard extends StatelessWidget {
   const Keyboard({super.key});
@@ -29,7 +29,7 @@ class Keyboard extends StatelessWidget {
             context: context, label: "Please Fill Both Fields !!!");
       } else {
         provider.bmiResult(provider.weight, provider.height);
-        Navigator.of(context).push(CustomTransition(const SecondPage()));
+        Navigator.of(context).push(CustomTransition(const ResultScreen()));
       }
     }
 

@@ -1,4 +1,4 @@
-import 'package:calc/Config/colors.dart';
+import 'package:calc/config/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Mass>(context);
-    final themeProvider = Provider.of<ThemeModal>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
         height: 10.h,
         width: 20.w,
         decoration: BoxDecoration(
-          color: theme.backgroundColor,
+          color: theme.colorScheme.background,
           boxShadow: themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow,
           shape: BoxShape.circle,
         ),

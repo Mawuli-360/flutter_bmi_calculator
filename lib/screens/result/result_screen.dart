@@ -1,8 +1,8 @@
-import 'package:calc/screens/Secondpage/Components/body.dart';
+import 'package:calc/screens/result/components/body.dart';
 import 'package:flutter/material.dart';
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class ResultScreen extends StatelessWidget {
+  const ResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
