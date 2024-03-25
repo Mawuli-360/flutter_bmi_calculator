@@ -1,5 +1,5 @@
 import 'package:calc/provider/theme_provider.dart';
-import 'package:calc/screens/calculator/components/keyboard.dart';
+import 'package:calc/screens/calculator/components/keypad.dart';
 import 'package:flutter/material.dart';
 import 'package:calc/screens/calculator/components/mass_field.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +25,7 @@ class _BodyState extends State<Body> {
           SizedBox(height: 2.h),
           Text(
             "BMI",
-            style: TextStyle(
-                fontSize: 28.sp, color: Theme.of(context).primaryColor),
+            style: TextStyle(fontSize: 28.sp, color: theme.primaryColor),
           ),
           SizedBox(height: 2.h),
           Expanded(
@@ -65,7 +64,7 @@ class _BodyState extends State<Body> {
             ),
           ),
           SizedBox(height: 1.h),
-          const Expanded(flex: 2, child: Keyboard()),
+          const Expanded(flex: 2, child: Keypad()),
         ]),
       ),
     );

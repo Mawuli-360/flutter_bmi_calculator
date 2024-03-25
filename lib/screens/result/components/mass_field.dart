@@ -1,4 +1,5 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/app_size.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
@@ -26,13 +27,14 @@ class MassField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: heightSize,
-            width: widthSize,
+            height: AppSize.heightSize,
+            width: AppSize.widthSize,
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(30),
-                boxShadow:
-                    themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow),
+                boxShadow: themeProvider.isDark
+                    ? AppColors.darkOuterBoxShadow
+                    : AppColors.outerBoxShadow),
             child: Center(
                 child: Text(
               label,
@@ -44,13 +46,13 @@ class MassField extends StatelessWidget {
               Text(number,
                   style: TextStyle(
                       fontSize: 25.sp,
-                      color: secondaryColor,
+                      color: AppColors.secondaryColor,
                       fontWeight: FontWeight.bold)),
               Text(
                 unit,
                 style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: defaultFontSize),
+                    fontSize: AppSize.defaultFontSize),
               ),
             ],
           ),

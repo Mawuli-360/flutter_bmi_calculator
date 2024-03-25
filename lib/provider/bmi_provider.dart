@@ -1,4 +1,4 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class Mass extends ChangeNotifier {
@@ -9,7 +9,7 @@ class Mass extends ChangeNotifier {
   bool isWeightSelected = true;
   bool isHeightSelected = false;
   double answer = 0;
-  Color? color ;
+  Color? color;
 
   void onHeightPressed() {
     isHeightSelected = !isHeightSelected;
@@ -56,16 +56,16 @@ class Mass extends ChangeNotifier {
 
     if (answer < 18.5) {
       msg = "Underweight";
-      color =   Colors.blue;
+      color = Colors.blue;
     } else if (answer >= 18.5 && answer < 25.5) {
       msg = "Normal";
       color = Colors.green;
-    } else if (answer >= 25.5 && answer < 40) { 
+    } else if (answer >= 25.5 && answer < 40) {
       msg = "Overweight";
       color = Colors.red;
     } else {
       msg = "Obese";
-      color = secondaryColor;
+      color = AppColors.secondaryColor;
     }
     answer.toString();
     result += answer.toStringAsFixed(2);

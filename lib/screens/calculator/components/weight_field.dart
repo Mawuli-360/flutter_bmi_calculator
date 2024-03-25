@@ -1,4 +1,5 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/app_size.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/bmi_provider.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
@@ -26,24 +27,25 @@ class WeightField extends StatelessWidget {
             child: Consumer<Mass>(
               builder: (context, value, child) => AnimatedContainer(
                 duration: const Duration(milliseconds: 8),
-                height: heightSize,
-                width: widthSize,
+                height: AppSize.heightSize,
+                width: AppSize.widthSize,
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.background,
+                  color: theme.cardColor,
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: value.isWeightSelected
                       ? themeProvider.isDark
-                          ? darkInnerBoxShadow
-                          : innerBoxShadow
+                          ? AppColors.darkInnerBoxShadow
+                          : AppColors.innerBoxShadow
                       : themeProvider.isDark
-                          ? darkOuterBoxShadow
-                          : outerBoxShadow,
+                          ? AppColors.darkOuterBoxShadow
+                          : AppColors.outerBoxShadow,
                 ),
                 child: Center(
                     child: Text(
                   "WEIGHT",
                   style: TextStyle(
-                      color: theme.primaryColor, fontSize: defaultFontSize),
+                      color: theme.primaryColor,
+                      fontSize: AppSize.defaultFontSize),
                 )),
               ),
             ),
@@ -57,14 +59,15 @@ class WeightField extends StatelessWidget {
                       fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
                       color: provider.isWeightSelected
-                          ? secondaryColor
+                          ? AppColors.secondaryColor
                           : theme.primaryColor),
                 ),
               ),
               Text(
                 "Kilogram",
                 style: TextStyle(
-                    color: theme.primaryColor, fontSize: defaultFontSize),
+                    color: theme.primaryColor,
+                    fontSize: AppSize.defaultFontSize),
               ),
             ],
           ),

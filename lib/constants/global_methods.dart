@@ -1,9 +1,11 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class GlobalMethods {
-  static customSnackbar(
+  GlobalMethods._();
+
+  static void customSnackbar(
       {required BuildContext context, required String label}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -14,13 +16,15 @@ class GlobalMethods {
               gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.centerLeft,
-                  colors: [secondaryColor, primaryColor]),
+                  colors: [AppColors.secondaryColor, AppColors.primaryColor]),
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Center(
               child: Text(
             label,
             style: TextStyle(
-                fontSize: 15.sp, color: bgColor, fontWeight: FontWeight.bold),
+                fontSize: 15.sp,
+                color: AppColors.bgColor,
+                fontWeight: FontWeight.bold),
           )),
         ),
         behavior: SnackBarBehavior.floating,

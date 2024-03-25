@@ -1,6 +1,6 @@
 import 'package:calc/provider/theme_provider.dart';
 import 'package:calc/screens/result/components/custom_meter.dart';
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/bmi_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,12 +20,13 @@ class CardResult extends StatelessWidget {
       child: Container(
         height: 30.h,
         decoration: BoxDecoration(
-            color: theme.colorScheme.background,
+            color: theme.cardColor,
             borderRadius: const BorderRadius.all(
               Radius.circular(30),
             ),
-            boxShadow:
-                themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow),
+            boxShadow: themeProvider.isDark
+                ? AppColors.darkOuterBoxShadow
+                : AppColors.outerBoxShadow),
         child: Padding(
           padding: EdgeInsets.all(2.h),
           child: Column(
@@ -39,7 +40,7 @@ class CardResult extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 48.sp,
                         fontWeight: FontWeight.w700,
-                        color: secondaryColor,
+                        color: AppColors.secondaryColor,
                       ),
                     ),
                   ),

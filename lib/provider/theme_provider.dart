@@ -1,4 +1,4 @@
-import 'package:calc/util/theme_preferences.dart';
+import 'package:calc/service/theme_preferences.dart';
 import 'package:flutter/material.dart';
 
 class ThemeProvider extends ChangeNotifier {

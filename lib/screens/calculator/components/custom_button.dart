@@ -1,4 +1,4 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
@@ -32,8 +32,10 @@ class CustomButton extends StatelessWidget {
         height: 10.h,
         width: 20.w,
         decoration: BoxDecoration(
-          color: theme.colorScheme.background,
-          boxShadow: themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow,
+          color: theme.cardColor,
+          boxShadow: themeProvider.isDark
+              ? AppColors.darkOuterBoxShadow
+              : AppColors.outerBoxShadow,
           shape: BoxShape.circle,
         ),
         child: Center(

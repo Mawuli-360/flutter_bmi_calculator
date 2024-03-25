@@ -1,6 +1,6 @@
-import 'package:calc/config/theme_style.dart';
+import 'package:calc/constants/theme.dart';
 import 'package:calc/provider/theme_provider.dart';
-import 'package:calc/splash_screen.dart';
+import 'package:calc/screens/calculator/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
             builder: ((context, orientation, deviceType) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
-                theme: Styles.themesData(value.isDark, context),
-                home: const SplashScreen(),
+                theme: Themes.themesData(value.isDark, context),
+                home: const HomeScreen(),
               );
             }),
           );

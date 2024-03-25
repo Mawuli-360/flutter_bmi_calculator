@@ -1,16 +1,17 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/app_size.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class OperatorButton extends StatelessWidget {
-  final VoidCallback voidCallback;
+  final VoidCallback onTap;
   final String label;
   final bool isIconData;
   const OperatorButton(
       {super.key,
-      required this.voidCallback,
+      required this.onTap,
       this.label = "",
       this.isIconData = false});
 
@@ -19,13 +20,15 @@ class OperatorButton extends StatelessWidget {
     final theme = Theme.of(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
     return GestureDetector(
-      onTap: voidCallback,
+      onTap: onTap,
       child: Container(
-        height: operatorHeight,
-        width: operatorWidth,
+        height: AppSize.operatorHeight,
+        width: AppSize.operatorWidth,
         decoration: BoxDecoration(
-          color: theme.colorScheme.background,
-          boxShadow: themeProvider.isDark ? darkOuterBoxShadow : outerBoxShadow,
+          color: theme.cardColor,
+          boxShadow: themeProvider.isDark
+              ? AppColors.darkOuterBoxShadow
+              : AppColors.outerBoxShadow,
           borderRadius: const BorderRadius.all(
             Radius.circular(40),
           ),
@@ -35,7 +38,7 @@ class OperatorButton extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_back,
                   size: 5.h,
-                  color: secondaryColor,
+                  color: AppColors.secondaryColor,
                 ),
               )
             : Center(
@@ -43,7 +46,7 @@ class OperatorButton extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
-                        color: secondaryColor)),
+                        color: AppColors.secondaryColor)),
               ),
       ),
     );

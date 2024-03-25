@@ -1,5 +1,5 @@
-import 'package:calc/config/global_methods.dart';
-import 'package:calc/config/slide_animation.dart';
+import 'package:calc/constants/global_methods.dart';
+import 'package:calc/constants/slide_animation.dart';
 import 'package:calc/provider/bmi_provider.dart';
 import 'package:calc/screens/calculator/components/operator_buttons.dart';
 import 'package:calc/screens/calculator/components/custom_button.dart';
@@ -8,22 +8,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-class Keyboard extends StatelessWidget {
-  const Keyboard({super.key});
+class Keypad extends StatelessWidget {
+  const Keypad({super.key});
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<Mass>(context, listen: false);
 
-    void clearAllFxn() {
+    void clearAll() {
       provider.reset();
     }
 
-    void deleteFxn() {
+    void deleteNumber() {
       provider.deleteButton();
     }
 
-    void goFxn() {
+    void nextToResultScreen() {
       if (provider.weight == "" || provider.height == "") {
         GlobalMethods.customSnackbar(
             context: context, label: "Please Fill Both Fields !!!");
@@ -64,9 +64,9 @@ class Keyboard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OperatorButton(voidCallback: clearAllFxn, label: "AC"),
-                OperatorButton(voidCallback: deleteFxn, isIconData: true),
-                OperatorButton(voidCallback: goFxn, label: "GO"),
+                OperatorButton(onTap: clearAll, label: "AC"),
+                OperatorButton(onTap: deleteNumber, isIconData: true),
+                OperatorButton(onTap: nextToResultScreen, label: "GO"),
                 SizedBox(height: 5.h)
               ],
             ),

@@ -1,4 +1,4 @@
-import 'package:calc/config/colors.dart';
+import 'package:calc/constants/colors.dart';
 import 'package:calc/provider/theme_provider.dart';
 import 'package:calc/screens/result/components/card_result.dart';
 import 'package:calc/provider/bmi_provider.dart';
@@ -17,10 +17,9 @@ class Body extends StatelessWidget {
     final theme = Theme.of(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
     final provider = Provider.of<Mass>(context);
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvoked: (value) async {
         provider.resetResult();
-        return true;
       },
       child: SafeArea(
         child: SizedBox(
@@ -88,15 +87,15 @@ class Body extends StatelessWidget {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(50)),
                           boxShadow: themeProvider.isDark
-                              ? darkOuterBoxShadow
-                              : outerBoxShadow,
-                          color: theme.colorScheme.background,
+                              ? AppColors.darkOuterBoxShadow
+                              : AppColors.outerBoxShadow,
+                          color: theme.cardColor,
                         ),
                         child: Center(
                             child: Icon(
                           Icons.arrow_back_ios_new,
                           size: 5.h,
-                          color: secondaryColor,
+                          color: AppColors.secondaryColor,
                         )),
                       ),
                     ),
